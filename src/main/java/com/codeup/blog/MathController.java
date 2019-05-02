@@ -13,6 +13,17 @@ public class MathController {
     public String add(@PathVariable int number, @PathVariable int numberTwo){
         return number + "+" + numberTwo + "=" + (number + numberTwo);
     }
+
+
+    /* Another way to write add method
+    int: primitive data type, good for
+    Integer: much larger functionality, good for playing with a number
+
+    public String add(@PathVariable Integer number, @PathVariable Integer numberTwo){
+        return String.valueOf(number + numberTwo);
+    }*/
+
+
     @GetMapping("/subtract/{number}/from/{numberTwo}")
     @ResponseBody
     public String subtract(@PathVariable int number, @PathVariable int numberTwo){
@@ -29,5 +40,12 @@ public class MathController {
     public String divide(@PathVariable int number, @PathVariable int numberTwo){
         return number + "/" + numberTwo + "=" + (number / numberTwo);
     }
+
+    /* If using double you may need to set return value to a certain number of decimal places
+
+
+    public double divide(@PathVariable double number, @PathVariable double numberTwo){
+        return number/numberTwo;
+    }*/
 
 }
