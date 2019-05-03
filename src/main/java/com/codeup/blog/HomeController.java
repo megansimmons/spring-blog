@@ -23,8 +23,6 @@ public class HomeController {
     }
 
     @GetMapping("/home/{name}")
-
-
     public String welcome(@PathVariable String name, Model vModel) {
         if(name.equals("megan")){
             vModel.addAttribute("admin", true);

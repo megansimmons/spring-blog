@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Roll Result</title>
+</head>
+<body>
+
+<h1>The user guessed <span th:text="${userGuess}"></span></h1>
+<h2>The answer is <span th:text="${random}"></span></h2>
+
+<h3 th:if="${userGuess == random}">Good Guess!</h3>
+<h3 th:if="${userGuess != random}">Guess Again!</h3>
+
+</body>
+</html>
