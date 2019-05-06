@@ -3,10 +3,12 @@ package com.codeup.blog;
 public class Post {
     private String title;
     private String body;
+    private String email;
 
-    public Post(String title, String body) {
+    public Post(String title, String body, String email) {
         this.title = title;
         this.body = body;
+        this.email = email;
     }
 
     public String getTitle() {
@@ -23,5 +25,13 @@ public class Post {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

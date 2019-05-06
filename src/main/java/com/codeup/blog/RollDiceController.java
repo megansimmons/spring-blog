@@ -15,7 +15,7 @@ public class RollDiceController {
     }
     public int random(){
         Random random = new Random();
-        int number = random.nextInt((6-1) +1)+1;
+        int number = random.nextInt(6) +1;
         return number;
     }
     @GetMapping("/roll-dice/{n}")
