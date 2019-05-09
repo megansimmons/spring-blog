@@ -16,12 +16,12 @@ public class EmailService {
     @Value("${spring.mail.from}")
     private String from;
 
-    public void prepareAndSend(Post post) {
+    public void prepareAndSend(Post post, String subject, String body) {
         SimpleMailMessage msg = new SimpleMailMessage();
         msg.setFrom(from);
-        msg.setTo(post.getEmail());
-        msg.setSubject(post.getTitle());
-        msg.setText(post.getBody());
+        msg.setTo(post.getUser().getEmail());
+        msg.setSubject(subject);
+        msg.setText(body);
 
         try{
             this.emailSender.send(msg);

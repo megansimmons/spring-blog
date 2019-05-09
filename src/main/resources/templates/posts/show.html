@@ -5,9 +5,11 @@
     <title>One post</title>
 </head>
 <body>
-<h2>Viewing post: <span th:text="${postId}"></span></h2>
 
-    <h1 th:text="${post.getTitle()}"></h1>
-    <h3 th:text="${post.getBody()}"></h3>
+
+    <h1 th:text="${post.title}"></h1>
+    <h3 th:text="${post.body}"></h3>
+
+
 </body>
 </html>

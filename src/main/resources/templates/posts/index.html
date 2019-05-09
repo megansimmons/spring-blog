@@ -1,15 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>Title</title>
 </head>
 <body>
+<h2>List of all posts!</h2>
 
-    <div th:each="post : ${posts}">
-        <h1 th:text="${post.getTitle()}"></h1>
-        <p th:text="${post.getBody()}"></p>
-    </div>
+<ul>
+    <li th:each="item : ${post}">
 
+        <a th:href="@{'/posts/' + ${item.id}}"><h3 th:text="${item.title}"></h3></a>
+        <p th:text="${item.body}"></p>
+        <p th:text="${item.user.getEmail()}"></p>
+
+        <!--it makes it clickable go to the URL on click and it adds the id number to the URL-->
+        <button><a th:href="'/posts/' + ${item.id} + '/edit'">edit</a></button>
+        <button><a th:href="'/posts/' + ${item.id} + '/delete'">delete</a></button>
+    </li>
+</ul>
+<hr/>
+<button><a href="/posts/create">create post</a></button>
 </body>
 </html>

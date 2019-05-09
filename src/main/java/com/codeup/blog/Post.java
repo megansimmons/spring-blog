@@ -1,14 +1,50 @@
 package com.codeup.blog;
 
-public class Post {
-    private String title;
-    private String body;
-    private String email;
 
-    public Post(String title, String body, String email) {
+import com.codeup.blog.models.User;
+
+import javax.persistence.*;
+
+@Entity @Table(name = "posts")
+public class Post {
+    //creating table
+    @Id @GeneratedValue
+    private Long id;
+
+    @Column(nullable = false,length = 100)
+    private String title;
+
+    @Column(nullable = false)
+    private String body;
+
+
+    @OneToOne
+    private User user;
+
+
+
+//getters and setters
+
+    public Post(){
+
+    }
+
+    public Post(long id) {
+        this.id = id;
+    }
+
+    public Post(String title, String body, User user) {
         this.title = title;
         this.body = body;
-        this.email = email;
+        this.user = user;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -27,11 +63,15 @@ public class Post {
         this.body = body;
     }
 
-    public String getEmail() {
-        return email;
+
+    public User getUser(){
+        return user;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUser(User user){
+        this.user = user;
     }
+
+
 }
+
